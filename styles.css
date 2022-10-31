@@ -1,0 +1,114 @@
+@font-face {
+	font-family: Ustroke;
+	src: url(fonts/Ustroke-Regular.woff2);
+	font-weight: 400;
+    font-style: normal;
+}
+ 
+/* global reset */
+html, body, span, label, h1, h2, h3, h4, h5, h6, p, a, em, img, s, strong, b, u, i, dl, dt, dd, ol, ul, li, article, aside, footer, nav, section,{
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	background: none;
+	list-style: none; 
+}
+html {
+	max-height: 10000000px;
+    height: 100%;
+}
+body {
+	height: 100%;
+	font-family: Ustroke;
+	color: crimson;
+	margin: 0;
+	padding: 0;	
+}
+.wrapper {
+	display: flex;
+	align-items: center;
+    justify-content: center;
+	min-height: 100%;
+	width: 100%;
+	margin: 0;
+	border: none;
+	background: url(images/room.jpg) no-repeat;
+	background-size: cover;
+	padding: 0
+}
+
+/*blocks*/
+div {
+	height: 180px;
+	width: 300px;
+	background: darkgray url(images/billy.png) top left no-repeat;
+	border: 5px inset dimgray;
+	margin: auto;
+	padding: 15px;
+	position: relative;
+}
+.second {
+	display: none;
+}
+.NaN {
+	display: none;
+}
+.error {
+	display: none;
+}
+.win {
+	display: none;
+}
+.loose {
+	display: none;
+}
+p {
+	display: block;
+	width: 150px;
+	position: absolute;
+	top: 15px;
+	right: 15px;	
+}
+.userEnter {
+	display: none;
+	width: auto;
+	top: auto;
+	left: 15px;
+	bottom: 25px;
+}
+.less {
+	display: none;
+}
+.more {
+	display: none;
+}
+button {
+	display: block;
+	font-family: Ustroke;
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+}
+input {
+	display: none;
+	position: absolute;
+	left: 15px;
+	bottom: 15px;
+}
+.check {
+	display: none;
+}
+
+/*footer*/
+footer {
+	display: flex;
+	justify-content: center;
+	height: 100px;
+	background: darkgray;
+}
+footer > p {
+	width: 800px;
+	position: relative;
+	text-align: center;
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title>Игра</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div>
+				<p class="start">Хочешь сыграть со мной в игру?</p>
+				<button type="button" class="begin">Хочу!</button>
+				
+				<p class="second">Я загадал число от 1 до 100. Тебе надо его угадать. У тебя 10 попыток.</p> <p class="userEnter">Вводи своё число:</p>
+				<input type="text"></input>
+				<button type="button" class="check">Проверь меня!</button>
+				
+				<p class="error">Ты не угадал! <br>
+				<span class="less">Возьми меньше!</span>
+				<span class="more">Возьми больше!</span><br>
+				<span class="counter"></span></p>
+				
+				<p class="NaN">Ты! Не пытайся дурачить меня! Ты ввёл не число! <br>
+				<span class="counter2"></span></p>
+				
+				<p class="win">Ты угадал! Ты можешь быть свободен! Возможно ты хочешь испытать себя ещё раз?</p>
+				
+				<p class="loose">Твои попытки исчерпаны! Ты проиграл! Но я готов дать тебе ещё один шанс...
+				Хочешь попробовать?</p>
+			</div>
+		</div>
+		
+		<script>      		 
+			let quest
+			let counter 
+			document.querySelector('.begin').onclick = function () {
+				document.querySelector('.begin').style.display = "none";
+				document.querySelector('.check').style.display = "inline-block";
+				document.querySelector('.start').style.display = "none";
+				document.querySelector('input').style.display = "inline-block";
+				document.querySelector('.second').style.display = "inline-block";
+				document.querySelector('.win').style.display = "none";
+				document.querySelector('.loose').style.display = "none";
+				quest = Math.floor(Math.random() * 100 + 1);
+				console.log(quest);
+				counter = 10;
+				}
+			let input = document.querySelector('input');
+					input.addEventListener('keypress', function(event) {
+					if (event.key === 'Enter') {
+						document.querySelector('.check').onclick();
+						}
+					});
+			
+			document.querySelector('.check').onclick = function() {
+				
+				counter--;
+					let ans = document.querySelector('input').value;
+					console.log(ans);
+					document.querySelector('input').value = "";
+				if ((counter>0) && (ans>quest)) {
+					document.querySelector('.second').style.display = "none";
+					document.querySelector('.error').style.display = "inline-block";
+					document.querySelector('.less').style.display = "inline-block";
+					document.querySelector('.more').style.display = "none";
+					document.querySelector('.NaN').style.display = "none";
+					document.querySelector('.win').style.display = "none";
+					document.querySelector('.loose').style.display = "none";
+					document.querySelector('.userEnter').style.display = "inline-block";
+					document.querySelector('.counter').innerHTML = "Осталось попыток: " + counter;
+					console.log(counter);
+				}
+				else if ((counter>0) && (ans<quest)) {
+					document.querySelector('.second').style.display = "none";
+					document.querySelector('.error').style.display = "inline-block";
+					document.querySelector('.more').style.display = "inline-block";
+					document.querySelector('.less').style.display = "none";
+					document.querySelector('.NaN').style.display = "none";
+					document.querySelector('.userEnter').style.display = "inline-block";
+					document.querySelector('.loose').style.display = "none";
+					document.querySelector('.counter').innerHTML = "Осталось попыток: " + counter;
+					console.log(counter);
+				}
+				
+				else if ((counter>0) && (isNaN(ans))) {
+					document.querySelector('.second').style.display = "none";
+					document.querySelector('.error').style.display = "none";
+					document.querySelector('.NaN').style.display = "inline-block";
+					document.querySelector('.userEnter').style.display = "inline-block";
+					document.querySelector('.loose').style.display = "none";
+					document.querySelector('.counter2').innerHTML = "Осталось попыток: " + counter;
+					console.log(counter);
+				}
+				
+				else if ((counter>0) && (ans == quest)) {
+					document.querySelector('.second').style.display = "none";
+					document.querySelector('.error').style.display = "none";
+					document.querySelector('.NaN').style.display = "none";
+					document.querySelector('.win').style.display = "inline-block";
+					document.querySelector('.userEnter').style.display = "none";
+					document.querySelector('.check').style.display = "none";
+					document.querySelector('input').style.display = "none";
+					document.querySelector('.loose').style.display = "none";
+					document.querySelector('.begin').style.display = "inline-block";
+				
+				}
+				else {
+					document.querySelector('.error').style.display = "none";
+					document.querySelector('.loose').style.display = "inline-block";
+					document.querySelector('.check').style.display = "none";
+					document.querySelector('.NaN').style.display = "none";
+					document.querySelector('.begin').style.display = "inline-block";
+					document.querySelector('input').style.display = "none";
+					document.querySelector('.userEnter').style.display = "none";
+					}
+									
+			}
+		</script>
+		<footer>
+			<p> VAIgnatiev 2022<br>
+			Права на использованные изображения и персонажей принадлежат их авторам и получены из свободных источников</p>
+		</footer>
+	</body>
+	
+</html>
